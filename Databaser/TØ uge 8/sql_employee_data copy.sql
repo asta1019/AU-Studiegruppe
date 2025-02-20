@@ -30,8 +30,8 @@ CREATE TABLE EMPLOYEE (
 );
 
 ALTER TABLE DEPARTMENT ADD FOREIGN KEY (Mgr_ssn) REFERENCES EMPLOYEE(Ssn);
-
 drop table if exists dept_locations;
+
 CREATE TABLE DEPT_LOCATIONS (
 	Dnumber		INT,
 	Dlocation	VARCHAR(100),
@@ -150,7 +150,7 @@ VALUES
     
 ## 7.5
 # a)
-SELECT D.Dname, COUNT(E.FName)
+SELECT D.Dname, COUNT(E.Ssn)
 FROM DEPARTMENT AS D, EMPLOYEE AS E
 WHERE D.Dnumber = E.Dno
 GROUP BY D.Dname
@@ -181,11 +181,20 @@ GROUP BY Dname;
 # a)
 SELECT Fname, Lname
 FROM EMPLOYEE
-WHERE Dno IN (
-	SELECT Dno 
-    FROM EMPLOYEE
-    WHERE Salary = (
-		SELECT max(Salary) FROM EMPLOYEE));
+WHERE Dno IN (SELECT Dno 
+			  FROM EMPLOYEE
+              WHERE Salary = (SELECT max(Salary) 
+							  FROM EMPLOYEE));
         
 # b)
-
+SELECT Fname, Lname
+FROM EMPLOYEE
+WHERE Super_ssn IN (SELECT Ssn 
+				    FROM EMPLOYEE
+                    WHERE Super_ssn = '888665555');
+                    
+# c)
+SELECT Fname, Lname
+FROM EMPLOYEE
+WHERE Salary > 10000 + (SELECT MIN(Salary) 
+						FROM EMPLOYEE);

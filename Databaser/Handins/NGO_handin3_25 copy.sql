@@ -172,7 +172,7 @@ ORDER BY D.ngo_name;
 
 ## 2)
 # a)
-ALTER TABLE Supporter ADD COLUMN level int DEFAULT 0 check(level >= 0);
+ALTER TABLE Supporter ADD COLUMN level int DEFAULT 0 CHECK(level >= 0);
 
 INSERT INTO Supporter (id, name, email, phone, city, NGO_name, birthday, volunteer, level)
 VALUES (12345, 'Test1', 'test@yahoo.dk', '12345678', '', 'Amnesty International', '1994-09-24', FALSE, 1);
@@ -181,7 +181,12 @@ SELECT * FROM Supporter;
 
 # b)
 UPDATE Supporter
-SET level = count(Donation.amout)
-WHERE NGO_name = 'KDG' AND email = 'lucy@yahoo.dk' AND Donation.s_id = id;
+SET level = (SELECT count(*) AS don_count
+			 FROM Donations
+             WHERE NGO_name = 'KDG' AND id = Donations.s_id) WHERE email = 'lucy@yahoo.dk';
+
+SELECT * FROM Supporter;
+
+
 
 

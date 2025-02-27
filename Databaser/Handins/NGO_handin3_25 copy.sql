@@ -187,6 +187,7 @@ SET level = (SELECT count(*) AS don_count
 
 SELECT * FROM Supporter;
 
-
+ALTER TABLE Supporter DROP COLUMN id CASCADE;
+ALTER TABLE Supporter DROP COLUMN id RESTRICT;
 
 

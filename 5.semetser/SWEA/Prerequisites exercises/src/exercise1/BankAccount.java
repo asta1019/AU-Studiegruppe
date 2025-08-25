@@ -1,3 +1,5 @@
+package exercise1;
+
 // Class
 public class BankAccount {
     // Private: kan ikke kaldes udenfor denne class

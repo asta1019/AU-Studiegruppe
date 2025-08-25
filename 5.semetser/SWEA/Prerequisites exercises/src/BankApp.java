@@ -6,7 +6,7 @@ public class BankApp {
         BankAccount account2 = new BankAccount(1500);
         BankAccount account3 = new BankAccount(2000);
 
-        // Chack balance
+        // Check balance
         System.out.println("Acc1 has balance: " + account1.CheckBalance());
 
         // Insert

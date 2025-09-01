@@ -98,7 +98,9 @@ public class StandardHotStoneGame implements Game {
   }
 
   @Override
-  public void endTurn() { }
+  public void endTurn() {
+
+  }
 
   @Override
   public Status playCard(Player who, Card card, int atIndex) {

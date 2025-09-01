@@ -54,7 +54,7 @@ public class TestAlphaStone {
   /** Fixture for AlphaStone testing. */
   @BeforeEach
   public void setUp() {
-    game = new StandardHotStoneGame();
+      game = new StandardHotStoneGame();
   }
 
   // Example of an early, simple test case:
@@ -78,11 +78,11 @@ public class TestAlphaStone {
     // Turn handling
     @Test
     public void shouldHavePeddersenInTurnAfterFindusEndsTurn() {
-        // Given
-        // When
-
-        // Then
-        assertThat(player, is(Player.PEDDERSEN));
+      // Given an initialized game
+        // When Findus ends its turn
+        game.endTurn();
+        // Then Peddersen is in turn
+        assertThat(game.getPlayerInTurn(), is(Player.PEDDERSEN));
     }
 
   // Example of a later, more complex, test case:

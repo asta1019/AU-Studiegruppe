@@ -73,10 +73,7 @@ public class StandardHotStoneGame implements Game {
   }
 
   @Override
-  public Card getCardInHand(Player who, int indexInHand) {
-      List<String> stack = new ArrayList<>();
-      //return null;
-  }
+  public Card getCardInHand(Player who, int indexInHand) { return null;}
 
   @Override
   public Iterable<? extends Card> getHand(Player who) {

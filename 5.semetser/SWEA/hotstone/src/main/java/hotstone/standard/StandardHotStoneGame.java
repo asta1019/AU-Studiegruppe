@@ -47,6 +47,8 @@ public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
 
 
+
+
   @Override
   public Player getPlayerInTurn() {
       return currentPlayer;

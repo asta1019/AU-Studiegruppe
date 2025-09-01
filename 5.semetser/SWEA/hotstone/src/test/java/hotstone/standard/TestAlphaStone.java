@@ -62,7 +62,6 @@ public class TestAlphaStone {
   @Test
   public void shouldHaveFindusAsFirstPlayer() {
     // Given a game, initialized in 'beforeeach' method
-
     // When I ask for the player in turn
     Player player = game.getPlayerInTurn();
     // Then it should be Findus
@@ -79,12 +78,44 @@ public class TestAlphaStone {
     @Test
     public void shouldHavePeddersenInTurnAfterFindusEndsTurn() {
       // Given an initialized game
-        // When Findus ends its turn
-        game.endTurn();
-        // Then Peddersen is in turn
-        assertThat(game.getPlayerInTurn(), is(Player.PEDDERSEN));
+      // When Findus ends its turn
+      game.endTurn();
+      // Then Peddersen is in turn
+      assertThat(game.getPlayerInTurn(), is(Player.PEDDERSEN));
     }
 
+    @Test
+    public void shouldHaveFindusInTurnAfterPeddersenEndsTurn() {
+      // Given an initialized game
+      // When Findus end its turn
+      game.endTurn();
+      // When Peddersen ends his turn
+      game.endTurn();
+      // Then Findus is its turn
+      assertThat(game.getPlayerInTurn(), is(Player.FINDUS));
+    }
+
+    @Test
+    public void shouldHaveUnoDosTresCardsInitially() {
+        // Given a game
+        // When game starts
+        int count = game.getHandSize(Player.FINDUS);
+        // Then Findus should have three cards
+        assertThat(count, is(3));
+
+        // When I pick card 0
+        Card card = game.getCardInHand(Player.FINDUS, 0);
+        // Then is it Tres
+        assertThat(card.getName(), is(GameConstants.TRES_CARD));
+        // When I pick card 1
+        Card card1 = game.getCardInHand(Player.FINDUS, 1);
+        // Then is it Dos
+        assertThat(card.getName(), is(GameConstants.DOS_CARD));
+        // When I pick card 2
+        Card card2 = game.getCardInHand(Player.FINDUS, 2);
+        // Then is it Uno
+        assertThat(card.getName(), is(GameConstants.UNO_CARD));
+        }
   // Example of a later, more complex, test case:
   // Card handling
 
@@ -98,17 +129,5 @@ public class TestAlphaStone {
   // of the hand - always entered at position 0
   // and pushing the rest of the cards 1 position
   // 'down'
-  @Test
-  public void shouldHaveUnoDosTresCardsInitially() {
-    // Given a game, Findus has 3 cards in hand
-    int count = game.getHandSize(Player.FINDUS);
-    assertThat(count, is(3));
-    // And these are ordered Tres, Dos, Uno in slot 0,1,2
 
-    // When I pick card 0
-    Card card = game.getCardInHand(Player.FINDUS, 0);
-    // Then is it Tres
-    // ENABLE TO START TDD'ing
-    // assertThat(card.getName(), is(GameConstants.TRES_CARD));
-  }
 }

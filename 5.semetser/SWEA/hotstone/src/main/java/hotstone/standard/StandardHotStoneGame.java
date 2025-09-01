@@ -19,6 +19,8 @@ package hotstone.standard;
 
 import hotstone.framework.*;
 
+import java.util.ArrayList;
+
 /** This is the 'temporary test stub' in TDD
  * terms: the initial empty but compilable implementation
  * of the game interface.
@@ -43,6 +45,7 @@ import hotstone.framework.*;
 
 public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
+
 
   @Override
   public Player getPlayerInTurn() {
@@ -71,7 +74,8 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Card getCardInHand(Player who, int indexInHand) {
-    return null;
+      List<String> stack = new ArrayList<>();
+      //return null;
   }
 
   @Override
@@ -103,7 +107,8 @@ public class StandardHotStoneGame implements Game {
   public void endTurn() {
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
-      }
+      } else
+      {currentPlayer = Player.FINDUS;}
   }
 
   @Override

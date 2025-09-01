@@ -22,17 +22,17 @@ import hotstone.framework.*;
 /** This is the 'temporary test stub' in TDD
  * terms: the initial empty but compilable implementation
  * of the game interface.
- *
+ * .
  * It already includes a bit of FAKE-IT code for the first
  * test case about hand management and player in turn.
- *
+ * .
  * Start solving the AlphaStone exercise by
  * following the TDD rhythm: pick a one-step-test
  * from your test list, quickly add a test,
  * run it to see it fail, and then modify this
  * implementing class (and supporting classes)
  * to make your test case run. Refactor and repeat.
- *
+ * .
  * While this is the implementation of Game for
  * the AlphaStone game, you will constantly
  * refactor it over the course of the exercises

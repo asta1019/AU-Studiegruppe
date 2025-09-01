@@ -42,10 +42,12 @@ import hotstone.framework.*;
  */
 
 public class StandardHotStoneGame implements Game {
+    private Player currentPlayer = Player.FINDUS;
+
   @Override
   public Player getPlayerInTurn() {
-      return Player.FINDUS;
-  } // Fake-it
+      return currentPlayer;
+  }
 
   @Override
   public Hero getHero(Player who) {
@@ -99,7 +101,9 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public void endTurn() {
-
+      if (currentPlayer == Player.FINDUS) {
+          currentPlayer = Player.PEDDERSEN;
+      }
   }
 
   @Override

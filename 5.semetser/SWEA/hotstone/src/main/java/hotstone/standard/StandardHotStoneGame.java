@@ -44,7 +44,7 @@ import hotstone.framework.*;
 public class StandardHotStoneGame implements Game {
   @Override
   public Player getPlayerInTurn() {
-    return Player.FINDUS;
+      return Player.FINDUS;
   } // Fake-it
 
   @Override

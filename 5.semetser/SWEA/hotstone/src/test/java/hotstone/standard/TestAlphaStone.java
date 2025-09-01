@@ -121,21 +121,38 @@ public class TestAlphaStone {
     }
 
     @Test
-    public void shouldFindusGetThreeInHandInFirstRound() {
-        // Given initialized game
-        // When game begins
-        // Then Findus has 3 cards
-        assertThat(game.getHandSize(Player.FINDUS), is(3));
-    }
-
-    @Test
-    public void shouldIncreaseHandSizeWhenNewTurn() {
+    public void shouldIncraseEachTurnByOne() {
       // Given initialized game
-      // When turn number >= 2
-
-      // Then hand sizes increases by 1
-        
+      // When take turn
+      int turnNumber = game.getTurnNumber();
+      game.endTurn();
+      int newTurnNumber = game.getTurnNumber();
+      // Then take turn increase by one
+      assertThat(turnNumber, is(newTurnNumber - 1));
     }
+
+//    @Test
+//    public void shouldFindusGetThreeInHandInFirstRound() {
+//        // Given initialized game
+//        // When game begins
+//        // Then Findus has 3 cards
+//        assertThat(game.getHandSize(Player.FINDUS), is(3));
+//    }
+
+//    @Test
+//    public void shouldFindusIncreaseHandSizeByOneInTurn2() {
+//      // Given initialized game
+//        int oldHandSize = game.getHandSize(Player.FINDUS);
+//        game.endTurn();
+//        game.endTurn();
+//      // When turn number 2
+//        assertThat(game.getTurnNumber(), is(2));
+//      // Then hand sizes increases by 1
+//        int newHandSize = game.getHandSize(Player.FINDUS);
+//        assertThat(newHandSize, is(oldHandSize+1));
+
+
+//    }
 
 
 

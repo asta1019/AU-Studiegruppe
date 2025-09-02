@@ -150,7 +150,7 @@ public class TestAlphaStone {
         assertThat(count, is(3));
     }
 
-    @ Test
+    @Test
     public void shouldFindusHaveUnoDosTresCardsInitiallyInIndexOrder() {
         // Given initialized game
         // When game starts
@@ -160,7 +160,7 @@ public class TestAlphaStone {
         assertThat(game.getCardInHand(Player.FINDUS, 2).getName(), is(UNO_CARD));
     }
 
-    @ Test
+    @Test
     public void shouldPeddersenHaveUnoDosTresCardsInitiallyInIndexOrder() {
         // Given initialized game
         // When game starts
@@ -170,8 +170,65 @@ public class TestAlphaStone {
         assertThat(game.getCardInHand(Player.PEDDERSEN, 2).getName(), is(UNO_CARD));
     }
 
+    @Test
+    public void shouldFindusDeckincludeFourCardsAtGameStarts() {
+        // Given initialized game
+        // When game starts
+        // Then deck should contain four cards Cuatro, Cinco, Seis, Siete
+        assertThat(game.getDeckSize(Player.FINDUS), is(4));
+    }
 
+    @Test
+    public void shouldPeddersenDeckincludeFourCardsAtGameStarts() {
+        // Given initialized game
+        // When game starts
+        // Then deck should contain four cards Cuatro, Cinco, Seis, Siete
+        assertThat(game.getDeckSize(Player.PEDDERSEN), is(4));
+    }
 
+    @Test
+    public void shouldFindusDeckDecreaseFirstNewTurn() {
+        // Given initialized game
+        // When Findus new turn, his deck decrease by one
+        int deckSize = game.getDeckSize(Player.FINDUS);
+        // Findus turn ends
+        game.endTurn();
+        // Peddersen turn ends
+        game.endTurn();
+        // Then Findus deck decrease by one
+        assertThat(game.getDeckSize(Player.FINDUS), is(deckSize - 1));
+
+    }
+
+    @Test
+    public void shouldFindusDeckDecreaseSecondNewTurn() {
+        // Given initialized game
+        // When Findus new turn, his deck decrease by one
+        int deckSize = game.getDeckSize(Player.FINDUS);
+        // Findus turn ends
+        game.endTurn();
+        // Peddersen turn ends
+        game.endTurn();
+        game.endTurn();
+        game.endTurn();
+        assertThat(game.getDeckSize(Player.FINDUS), is(deckSize - 2));
+
+    }
+
+    @Test
+    public void shouldPeddersenDeckDecreaseEachNewTurn() {
+        // Given initialized game
+        // When Peddersen new turn, his deck decrease by one
+        int deckSize = game.getDeckSize(Player.PEDDERSEN);
+        // Findus turn ends
+        game.endTurn();
+        // Peddersen turn ends
+        game.endTurn();
+        // Findus turn ends
+        game.endTurn();
+        // Then Peddersen deck decrease by one
+        assertThat(game.getDeckSize(Player.PEDDERSEN), is(deckSize - 1));
+    }
 //    @Test
 //    public void shouldFindusIncreaseHandSizeByOneInTurn2() {
 //      // Given initialized game

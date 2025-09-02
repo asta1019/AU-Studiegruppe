@@ -52,11 +52,17 @@ public class StandardHotStoneGame implements Game {
     // Create hands
     private ArrayList<Card> FindusHand = new ArrayList<>();
     private ArrayList<Card> PeddersenHand = new ArrayList<>();
+    private ArrayList<Card> FindusDeck = new ArrayList<>();
+    private ArrayList<Card> PeddersenDeck = new ArrayList<>();
 
     // Create cards
     private Card Uno = new StandardCard(UNO_CARD,1 ,1 ,1);
     private Card Dos = new StandardCard(DOS_CARD,2 ,2 ,2);
     private Card Tres = new StandardCard(TRES_CARD,3 ,3 ,3);
+    private Card Cuatro = new StandardCard(CUATRO_CARD,2 ,3 ,1);
+    private Card Cinco = new StandardCard(CINCO_CARD,3 ,5 ,1);
+    private Card Seis = new StandardCard(SEIS_CARD,2 ,1 ,3);
+    private Card Siete = new StandardCard(SIETE_CARD,3 ,2 ,4);
 
     public StandardHotStoneGame() {
         // Add cards to Findus hand
@@ -68,7 +74,25 @@ public class StandardHotStoneGame implements Game {
         PeddersenHand.add(Tres);
         PeddersenHand.add(Dos);
         PeddersenHand.add(Uno);
+
+        // Add cards to Findus' deck
+        FindusDeck.add(Siete);
+        FindusDeck.add(Seis);
+        FindusDeck.add(Cinco);
+        FindusDeck.add(Cuatro);
+
+
+        // Add cards to Peddersen' deck
+        PeddersenDeck.add(Siete);
+        PeddersenDeck.add(Seis);
+        PeddersenDeck.add(Cinco);
+        PeddersenDeck.add(Cuatro);
+
+
+
     }
+
+
 
     @Override
   public Player getPlayerInTurn() {
@@ -90,10 +114,14 @@ public class StandardHotStoneGame implements Game {
       return turnNumber;
   }
 
-  @Override
-  public int getDeckSize(Player who) {
-    return 0;
-  }
+    @Override
+    public int getDeckSize(Player who) {
+        if (who == Player.FINDUS) {
+            return FindusDeck.size();
+        } else {
+            return PeddersenDeck.size();
+        }
+    }
 
   @Override
   public Card getCardInHand(Player who, int indexInHand) {
@@ -111,7 +139,7 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public int getHandSize(Player who) {
-      if (currentPlayer == Player.FINDUS) {
+      if (who == Player.FINDUS) {
           return FindusHand.size();
       } else {
             return PeddersenHand.size();
@@ -137,9 +165,15 @@ public class StandardHotStoneGame implements Game {
   public void endTurn() {
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
-      } else
-      {currentPlayer = Player.FINDUS;}
+          if (turnNumber >= 2) {
+              PeddersenDeck.remove(PeddersenDeck.size() - 1);
+          }
+      } else {
+          currentPlayer = Player.FINDUS;
+              FindusDeck.remove(FindusDeck.size() - 1);
+      }
       turnNumber += 1;
+
   }
 
   @Override

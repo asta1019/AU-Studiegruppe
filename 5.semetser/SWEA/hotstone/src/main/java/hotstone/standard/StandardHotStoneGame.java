@@ -48,17 +48,26 @@ import static hotstone.standard.GameConstants.*;
 public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
     private int turnNumber = 0;
+
+    // Create hands
     private ArrayList<Card> FindusHand = new ArrayList<>();
     private ArrayList<Card> PeddersenHand = new ArrayList<>();
 
+    // Create cards
     private Card Uno = new StandardCard(UNO_CARD,1 ,1 ,1);
     private Card Dos = new StandardCard(DOS_CARD,2 ,2 ,2);
     private Card Tres = new StandardCard(TRES_CARD,3 ,3 ,3);
 
     public StandardHotStoneGame() {
+        // Add cards to Findus hand
         FindusHand.add(Tres);
         FindusHand.add(Dos);
         FindusHand.add(Uno);
+
+        // Add cards to Peddersen hand
+        PeddersenHand.add(Tres);
+        PeddersenHand.add(Dos);
+        PeddersenHand.add(Uno);
     }
 
     @Override
@@ -107,7 +116,7 @@ public class StandardHotStoneGame implements Game {
       } else {
             return PeddersenHand.size();
       }
-  } // FAKE-IT
+  }
 
   @Override
   public Card getCardInField(Player who, int indexInField) {

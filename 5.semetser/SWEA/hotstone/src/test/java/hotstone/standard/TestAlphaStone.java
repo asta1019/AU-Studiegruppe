@@ -150,15 +150,24 @@ public class TestAlphaStone {
         assertThat(count, is(3));
     }
 
-
     @ Test
-    public void shouldFindusHaveUnoDosTresCardsInitially() {
+    public void shouldFindusHaveUnoDosTresCardsInitiallyInIndexOrder() {
         // Given initialized game
         // When game starts
         // Then Findus should have Uno, Dos, Tres in hand
-        assertThat(game.getCardInHand(Player.FINDUS, 0));
-        assertThat(game.getCardInHand(Player.FINDUS, 1));
-        assertThat(game.getCardInHand(Player.FINDUS, 2));
+        assertThat(game.getCardInHand(Player.FINDUS, 0).getName(), is(TRES_CARD));
+        assertThat(game.getCardInHand(Player.FINDUS, 1).getName(), is(DOS_CARD));
+        assertThat(game.getCardInHand(Player.FINDUS, 2).getName(), is(UNO_CARD));
+    }
+
+    @ Test
+    public void shouldPeddersenHaveUnoDosTresCardsInitiallyInIndexOrder() {
+        // Given initialized game
+        // When game starts
+        // Then Findus should have Uno, Dos, Tres in hand
+        assertThat(game.getCardInHand(Player.PEDDERSEN, 0).getName(), is(TRES_CARD));
+        assertThat(game.getCardInHand(Player.PEDDERSEN, 1).getName(), is(DOS_CARD));
+        assertThat(game.getCardInHand(Player.PEDDERSEN, 2).getName(), is(UNO_CARD));
     }
 
 

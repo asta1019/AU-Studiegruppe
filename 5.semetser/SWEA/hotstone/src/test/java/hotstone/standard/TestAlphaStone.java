@@ -267,10 +267,39 @@ public class TestAlphaStone {
     }
 
     @Test
-    public void shouldHaveHeroHasHealth21AndMana3() {
+    public void shouldFindusHaveHeroHasHealth21AndMana3() {
         // Given initialized game
         // When player gets hero
         // Then hero has 21 health and 3 mana
         assertThat(game.getHero(Player.FINDUS).getType(), is(BABY_HERO_TYPE));
+    }
+
+    @Test
+    public void shouldPeddersenHaveHeroHasHealth21AndMana3() {
+        // Given initialized game
+        // When player gets hero
+        // Then hero has 21 health and 3 mana
+        assertThat(game.getHero(Player.PEDDERSEN).getType(), is(BABY_HERO_TYPE));
+    }
+
+    @Test
+    public void shouldFindusHeroHave3ManaEachTurn() {
+        // Given initialized game
+        // When Fidus starts each turn
+        // Then Findus hero' mana' should be 3
+        game.endTurn();
+        game.endTurn();
+        assertThat(game.getHero(Player.FINDUS).getMana(), is(3));
+    }
+
+    @Test
+    public void shouldPeddersenHeroHave3ManaEachTurn() {
+        // Given initialized game
+        // When Fidus starts each turn
+        // Then Findus hero' mana' should be 3
+        game.endTurn();
+        game.endTurn();
+        game.endTurn();
+        assertThat(game.getHero(Player.PEDDERSEN).getMana(), is(3));
     }
 }

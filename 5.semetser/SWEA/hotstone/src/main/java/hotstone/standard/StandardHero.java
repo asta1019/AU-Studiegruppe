@@ -16,8 +16,7 @@ public class StandardHero implements Hero {
 
     @Override
     public int getMana() {
-        return 0;
-    }
+        return this.mana;}
 
     @Override
     public int getHealth() {

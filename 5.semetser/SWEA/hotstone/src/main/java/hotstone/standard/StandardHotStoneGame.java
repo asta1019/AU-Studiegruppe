@@ -48,6 +48,7 @@ import static hotstone.standard.GameConstants.*;
 public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
     private int turnNumber = 0;
+    private int totalMana = 3;
 
     // Create hands
     private ArrayList<Card> FindusHand = new ArrayList<>();
@@ -65,8 +66,8 @@ public class StandardHotStoneGame implements Game {
     private Card Siete = new StandardCard(SIETE_CARD,3 ,2 ,4);
 
     // Create Hero
-    private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, 21,3);
-    private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, 21,3);
+    private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
+    private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
 
     public StandardHotStoneGame() {
         // Add cards to Findus hand
@@ -104,7 +105,7 @@ public class StandardHotStoneGame implements Game {
         if (who == Player.FINDUS) {
             return FindusHeroBaby;
         } else {
-            return null;
+            return PeddersenHeroBaby;
         }
   }
 
@@ -167,17 +168,25 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public void endTurn() {
+        // switch current player form Findus to Peddersen
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
+          // When tunnumber more than 1 Peddersen gets a card in hand
           if (turnNumber >= 2) {
               Card PeddersenRemovedCard = PeddersenDeck.remove(0);
               PeddersenHand.add(0, PeddersenRemovedCard);
+              //totalMana = 3;
           }
       } else {
+          // switch current player form Peddersen to Findus
           currentPlayer = Player.FINDUS;
+              // Findus next gets a card in hand
               Card FindusRemovedCard = FindusDeck.remove(0);
               FindusHand.add(0,FindusRemovedCard);
+              // Findus hero will get 3 manas each round
+              //totalMana = 3;
       }
+      // everytime turn end turnnumber increase by one
       turnNumber += 1;
 
   }

@@ -131,56 +131,37 @@ public class TestAlphaStone {
       assertThat(turnNumber, is(newTurnNumber - 1));
     }
 
+//    @Test
+//    public void shouldFindusGetThreeInHandInFirstRound() {
+//        // Given initialized game
+//        // When game begins
+//        if (game.getTurnNumber() < 2) {
+//            // Then Findus has 3 cards
+//            assertThat(game.getHandSize(Player.FINDUS), is(3));
+//        }
+//    }
+
     @Test
     public void shouldFindusGetThreeInHandInFirstRound() {
         // Given initialized game
         // When game begins
         // Then Findus has 3 cards
-        assertThat(game.getHandSize(Player.FINDUS), is(3));
+        int count = game.getHandSize(Player.FINDUS);
+        assertThat(count, is(3));
     }
 
-    @Test
-    public void shouldFindusGetFourInHandInSecondRound() {
+
+    @ Test
+    public void shouldFindusHaveUnoDosTresCardsInitially() {
         // Given initialized game
-        // When game begins
-        // Then Findus has 3 cards
-        assertThat(game.getHandSize(Player.FINDUS), is(3));
+        // When game starts
+        // Then Findus should have Uno, Dos, Tres in hand
+        assertThat(game.getCardInHand(Player.FINDUS, 0));
+        assertThat(game.getCardInHand(Player.FINDUS, 1));
+        assertThat(game.getCardInHand(Player.FINDUS, 2));
     }
 
 
-
-//    @ Test
-//    public void shouldFindusHaveUnoDosTresCardsInitially() {
-//        // Given initialized game
-//        // When game starts
-//
-//        // When I pick card 1
-//        Card card1 = new StandardCard(UNO_CARD,1 ,1 ,1);
-//        // Then is it Tres
-//        assertThat(card1.getName(), is(GameConstants.UNO_CARD));
-//        // When I pick card 1
-//        Card card2 = new StandardCard(DOS_CARD,2 ,2 ,2);
-//        // Then is it Dos
-//        assertThat(card2.getName(), is(GameConstants.DOS_CARD));
-//        // When I pick card 2
-//        Card card3 = new StandardCard(TRES_CARD,3 ,3 ,3);
-//        // Then is it Uno
-//        assertThat(card3.getName(), is(GameConstants.TRES_CARD));
-//
-//        game.getCardInHand(Player.FINDUS, 0);
-//        game.getCardInHand(Player.FINDUS, 1);
-//        game.getCardInHand(Player.FINDUS, 2);
-//
-//    }
-
-
-//    @Test
-//    public void shouldFindusGetThreeInHandInFirstRound() {
-//        // Given initialized game
-//        // When game begins
-//        // Then Findus has 3 cards
-//        assertThat(game.getHandSize(Player.FINDUS), is(3));
-//    }
 
 //    @Test
 //    public void shouldFindusIncreaseHandSizeByOneInTurn2() {

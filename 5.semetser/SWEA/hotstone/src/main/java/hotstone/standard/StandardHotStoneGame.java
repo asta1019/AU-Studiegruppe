@@ -55,10 +55,13 @@ public class StandardHotStoneGame implements Game {
     private Card Dos = new StandardCard(DOS_CARD,2 ,2 ,2);
     private Card Tres = new StandardCard(TRES_CARD,3 ,3 ,3);
 
+    public StandardHotStoneGame() {
+        FindusHand.add(Tres);
+        FindusHand.add(Dos);
+        FindusHand.add(Uno);
+    }
 
-
-
-  @Override
+    @Override
   public Player getPlayerInTurn() {
       return currentPlayer;
   }
@@ -85,12 +88,12 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Card getCardInHand(Player who, int indexInHand) {
-//      if (currentPlayer == Player.FINDUS) {
-//          FindusHand.add(Uno);
-//          FindusHand.add(Dos);
-//          FindusHand.add(Tres);
-//      }
-      return null;}
+      if (who == Player.FINDUS) {
+          return FindusHand.get(indexInHand);
+      } else {
+          return PeddersenHand.get(indexInHand);
+        }
+      }
 
   @Override
   public Iterable<? extends Card> getHand(Player who) {
@@ -99,7 +102,11 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public int getHandSize(Player who) {
-    return 3;
+      if (currentPlayer == Player.FINDUS) {
+          return FindusHand.size();
+      } else {
+            return PeddersenHand.size();
+      }
   } // FAKE-IT
 
   @Override

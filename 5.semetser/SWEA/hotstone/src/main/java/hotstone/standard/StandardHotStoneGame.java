@@ -76,17 +76,17 @@ public class StandardHotStoneGame implements Game {
         PeddersenHand.add(Uno);
 
         // Add cards to Findus' deck
-        FindusDeck.add(Siete);
-        FindusDeck.add(Seis);
-        FindusDeck.add(Cinco);
         FindusDeck.add(Cuatro);
+        FindusDeck.add(Cinco);
+        FindusDeck.add(Seis);
+        FindusDeck.add(Siete);
 
 
         // Add cards to Peddersen' deck
-        PeddersenDeck.add(Siete);
-        PeddersenDeck.add(Seis);
-        PeddersenDeck.add(Cinco);
         PeddersenDeck.add(Cuatro);
+        PeddersenDeck.add(Cinco);
+        PeddersenDeck.add(Seis);
+        PeddersenDeck.add(Siete);
 
 
 
@@ -166,11 +166,11 @@ public class StandardHotStoneGame implements Game {
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
           if (turnNumber >= 2) {
-              PeddersenDeck.remove(PeddersenDeck.size() - 1);
+              PeddersenDeck.remove(0);
           }
       } else {
           currentPlayer = Player.FINDUS;
-              FindusDeck.remove(FindusDeck.size() - 1);
+              FindusDeck.remove(0);
       }
       turnNumber += 1;
 

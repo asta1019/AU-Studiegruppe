@@ -69,6 +69,10 @@ public class StandardHotStoneGame implements Game {
     private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
     private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
 
+    // Create fields
+    private ArrayList<Card> FindusField = new ArrayList<>();
+    private ArrayList<Card> PeddersenField = new ArrayList<>();
+
     public StandardHotStoneGame() {
         // Add cards to Findus hand
         FindusHand.add(Tres);
@@ -163,7 +167,11 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public int getFieldSize(Player who) {
-    return 0;
+        if (who == Player.FINDUS){
+            return FindusField.size();
+        } else {
+            return PeddersenField.size();
+        }
   }
 
   @Override

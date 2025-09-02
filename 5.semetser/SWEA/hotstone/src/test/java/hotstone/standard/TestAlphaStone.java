@@ -302,4 +302,31 @@ public class TestAlphaStone {
         game.endTurn();
         assertThat(game.getHero(Player.PEDDERSEN).getMana(), is(3));
     }
+
+    @Test
+    public void shouldFindusFieldSizeBeSizeZeroAtBegining(){
+      // Given initialized game
+      // When game begins
+      // Then Fundus field size should be 0
+      assertThat(game.getFieldSize(Player.FINDUS), is(0));
+
+    }
+
+    @Test
+    public void shouldPeddersenFieldSizeBeSizeZeroAtBegining(){
+        // Given initialized game
+        // When game begins
+        // Then Fundus field size should be 0
+        assertThat(game.getFieldSize(Player.PEDDERSEN), is(0));
+    }
+
+
+//    @Test
+//    public void shouldFindusHeroHave2ManaAfterPlayedCardUno() {
+//        // Given initialized game
+//        // When Fidus Playes Card Uno
+//        game.getCardInField(Player.FINDUS, 0)
+//        // Then Findus hero' mana' should be 2
+//        assertThat(game.getHero(Player.FINDUS).getMana(), is(2));
+//    }
 }

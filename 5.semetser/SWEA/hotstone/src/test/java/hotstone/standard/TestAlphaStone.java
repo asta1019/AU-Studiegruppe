@@ -31,6 +31,7 @@ package hotstone.standard;
  */
 
 import hotstone.framework.Card;
+import hotstone.framework.Hero;
 import hotstone.framework.Player;
 import org.junit.jupiter.api.*;
 
@@ -229,64 +230,47 @@ public class TestAlphaStone {
         // Then Peddersen deck decrease by one
         assertThat(game.getDeckSize(Player.PEDDERSEN), is(deckSize - 1));
     }
-//    @Test
-//    public void shouldFindusIncreaseHandSizeByOneInTurn2() {
-//      // Given initialized game
-//        int oldHandSize = game.getHandSize(Player.FINDUS);
-//        game.endTurn();
-//        game.endTurn();
-//      // When turn number 2
-//        assertThat(game.getTurnNumber(), is(2));
-//      // Then hand sizes increases by 1
-//        int newHandSize = game.getHandSize(Player.FINDUS);
-//        assertThat(newHandSize, is(oldHandSize+1));
 
+    @Test
+    public void shouldFindusIncreaseHandSizeByOneInTurn2() {
+        // Given initialized game
+        int oldHandSize = game.getHandSize(Player.FINDUS);
+        // When Turn number is 2
+        game.endTurn();
+        game.endTurn();
+        // Then Findus hand sizes increases by 1
+        int newHandSize = game.getHandSize(Player.FINDUS);
+        assertThat(newHandSize, is(oldHandSize + 1));
+    }
 
-//    }
+    @Test
+    public void shouldPeddersenIncreaseHandSizeByOneInTurn2() {
+        // Given initialized game
+        int oldHandSize = game.getHandSize(Player.PEDDERSEN);
+        // When Turn number is 3
+        game.endTurn();
+        game.endTurn();
+        game.endTurn();
+        // Then Peddersens hand sizes increases by 1
+        int newHandSize = game.getHandSize(Player.PEDDERSEN);
+        assertThat(newHandSize, is(oldHandSize + 1));
+    }
 
+    @Test
+    public void shouldFirstCardDrawnFromDeckBeCuatro() {
+        // Given initialized game
+        // When Turn number is 2
+        game.endTurn();
+        game.endTurn();
+        // Then Findus should have Cuatro card at index 0
+        assertThat(game.getCardInHand(Player.FINDUS, 0).getName(), is(CUATRO_CARD));
+    }
 
-
-
-
-
-
-//
-
-
-
-//    @Test
-//    public void shouldHaveUnoDosTresCardsInitially() {
-//        // Given a game
-//        // When game starts
-//        int count = game.getHandSize(Player.FINDUS);
-//        // Then Findus should have three cards
-//        assertThat(count, is(3));
-//
-//        // When I pick card 0
-//        Card card = game.getCardInHand(Player.FINDUS, 0);
-//        // Then is it Tres
-//        assertThat(card.getName(), is(GameConstants.TRES_CARD));
-//        // When I pick card 1
-//        Card card1 = game.getCardInHand(Player.FINDUS, 1);
-//        // Then is it Dos
-//        assertThat(card.getName(), is(GameConstants.DOS_CARD));
-//        // When I pick card 2
-//        Card card2 = game.getCardInHand(Player.FINDUS, 2);
-//        // Then is it Uno
-//        assertThat(card.getName(), is(GameConstants.UNO_CARD));
-//        }
-  // Example of a later, more complex, test case:
-  // Card handling
-
-  // The HotStone specs are quite insisting on how
-  // the cards, drawn from the deck, are organized
-  // in the hand. So when drawing the top three cards
-  // from the deck (uno, dos, tres) they have to
-  // be organized in the hand as
-  // index 0 = tres; index 1 = dos; index 2 = uno
-  // That is, a newly drawn card is 'at the top'
-  // of the hand - always entered at position 0
-  // and pushing the rest of the cards 1 position
-  // 'down'
-
+    @Test
+    public void shouldheroHasHealth21AndMana3() {
+        // Given initialized Hero
+        Hero hero = new StandardHero(BABY_HERO_TYPE);
+        // When start
+        // Then hero has 21 health and 3 mana
+    }
 }

@@ -64,6 +64,9 @@ public class StandardHotStoneGame implements Game {
     private Card Seis = new StandardCard(SEIS_CARD,2 ,1 ,3);
     private Card Siete = new StandardCard(SIETE_CARD,3 ,2 ,4);
 
+    // Create Hero
+    private Hero Baby = new StandardHero(BABY_HERO_TYPE, 21,3);
+
     public StandardHotStoneGame() {
         // Add cards to Findus hand
         FindusHand.add(Tres);
@@ -166,11 +169,13 @@ public class StandardHotStoneGame implements Game {
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
           if (turnNumber >= 2) {
-              PeddersenDeck.remove(0);
+              Card PeddersenRemovedCard = PeddersenDeck.remove(0);
+              PeddersenHand.add(0, PeddersenRemovedCard);
           }
       } else {
           currentPlayer = Player.FINDUS;
-              FindusDeck.remove(0);
+              Card FindusRemovedCard = FindusDeck.remove(0);
+              FindusHand.add(0,FindusRemovedCard);
       }
       turnNumber += 1;
 

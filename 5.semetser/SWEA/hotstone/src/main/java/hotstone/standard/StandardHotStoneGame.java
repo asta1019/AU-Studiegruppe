@@ -19,6 +19,10 @@ package hotstone.standard;
 
 import hotstone.framework.*;
 
+import java.util.ArrayList;
+
+import static hotstone.standard.GameConstants.*;
+
 /** This is the 'temporary test stub' in TDD
  * terms: the initial empty but compilable implementation
  * of the game interface.
@@ -44,6 +48,12 @@ import hotstone.framework.*;
 public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
     private int turnNumber = 0;
+    private ArrayList<Card> FindusHand = new ArrayList<>();
+    private ArrayList<Card> PeddersenHand = new ArrayList<>();
+
+    private Card Uno = new StandardCard(UNO_CARD,1 ,1 ,1);
+    private Card Dos = new StandardCard(DOS_CARD,2 ,2 ,2);
+    private Card Tres = new StandardCard(TRES_CARD,3 ,3 ,3);
 
 
 
@@ -74,7 +84,13 @@ public class StandardHotStoneGame implements Game {
   }
 
   @Override
-  public Card getCardInHand(Player who, int indexInHand) { return null;}
+  public Card getCardInHand(Player who, int indexInHand) {
+//      if (currentPlayer == Player.FINDUS) {
+//          FindusHand.add(Uno);
+//          FindusHand.add(Dos);
+//          FindusHand.add(Tres);
+//      }
+      return null;}
 
   @Override
   public Iterable<? extends Card> getHand(Player who) {

@@ -65,7 +65,8 @@ public class StandardHotStoneGame implements Game {
     private Card Siete = new StandardCard(SIETE_CARD,3 ,2 ,4);
 
     // Create Hero
-    private Hero Baby = new StandardHero(BABY_HERO_TYPE, 21,3);
+    private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, 21,3);
+    private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, 21,3);
 
     public StandardHotStoneGame() {
         // Add cards to Findus hand
@@ -84,27 +85,27 @@ public class StandardHotStoneGame implements Game {
         FindusDeck.add(Seis);
         FindusDeck.add(Siete);
 
-
         // Add cards to Peddersen' deck
         PeddersenDeck.add(Cuatro);
         PeddersenDeck.add(Cinco);
         PeddersenDeck.add(Seis);
         PeddersenDeck.add(Siete);
 
-
-
     }
-
 
 
     @Override
   public Player getPlayerInTurn() {
-      return currentPlayer;
+        return currentPlayer;
   }
 
   @Override
   public Hero getHero(Player who) {
-    return null;
+        if (who == Player.FINDUS) {
+            return FindusHeroBaby;
+        } else {
+            return null;
+        }
   }
 
   @Override

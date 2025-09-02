@@ -267,10 +267,10 @@ public class TestAlphaStone {
     }
 
     @Test
-    public void shouldheroHasHealth21AndMana3() {
-        // Given initialized Hero
-        Hero hero = new StandardHero(BABY_HERO_TYPE);
-        // When start
+    public void shouldHaveHeroHasHealth21AndMana3() {
+        // Given initialized game
+        // When player gets hero
         // Then hero has 21 health and 3 mana
+        assertThat(game.getHero(Player.FINDUS).getType(), is(BABY_HERO_TYPE));
     }
 }

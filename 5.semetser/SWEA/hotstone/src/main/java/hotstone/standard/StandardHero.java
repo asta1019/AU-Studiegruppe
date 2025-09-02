@@ -31,7 +31,7 @@ public class StandardHero implements Hero {
 
     @Override
     public String getType() {
-        return "";
+        return type;
     }
 
     @Override

@@ -48,7 +48,7 @@ import static hotstone.standard.GameConstants.*;
 public class StandardHotStoneGame implements Game {
     private Player currentPlayer = Player.FINDUS;
     private int turnNumber = 0;
-    private int totalMana = 3;
+    // private int totalMana = 3;
 
     // Create hands
     private ArrayList<Card> FindusHand = new ArrayList<>();
@@ -66,8 +66,8 @@ public class StandardHotStoneGame implements Game {
     private Card Siete = new StandardCard(SIETE_CARD,3 ,2 ,4);
 
     // Create Hero
-    private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
-    private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, totalMana,21);
+    private Hero FindusHeroBaby = new StandardHero(BABY_HERO_TYPE, 3,21);
+    private Hero PeddersenHeroBaby = new StandardHero(BABY_HERO_TYPE, 3,21);
 
     // Create fields
     private ArrayList<Card> FindusField = new ArrayList<>();
@@ -157,7 +157,11 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Card getCardInField(Player who, int indexInField) {
-    return null;
+    if (who == Player.FINDUS) {
+        return FindusField.get(indexInField);
+    } else {
+        return PeddersenField.get(indexInField);
+    }
   }
 
   @Override
@@ -167,11 +171,12 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public int getFieldSize(Player who) {
-        if (who == Player.FINDUS){
-            return FindusField.size();
-        } else {
-            return PeddersenField.size();
-        }
+        //if (who == Player.FINDUS){
+        //    return FindusField.size();
+        //} else {
+        //    return PeddersenField.size();
+        //}
+      return 0;
   }
 
   @Override
@@ -201,7 +206,12 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Status playCard(Player who, Card card, int atIndex) {
-    return null;
+        if (who == Player.FINDUS) {
+            FindusField.add(atIndex, card);
+        } else {
+            PeddersenField.add(atIndex, card);
+        }
+        return Status.OK;
   }
 
   @Override

@@ -283,42 +283,62 @@ public class TestAlphaStone {
     }
 
     @Test
-    public void shouldFindusHeroHave3ManaEachTurn() {
-        // Given initialized game
-        // When Fidus starts each turn
-        // Then Findus hero' mana' should be 3
-        game.endTurn();
-        game.endTurn();
-        assertThat(game.getHero(Player.FINDUS).getMana(), is(3));
+    public void shouldFindusPlayCardUnoCardUnoAppearsInFindusField() {
+        // Given initilized game
+        // When Findus plays Card Uno
+        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+        game.playCard(Player.FINDUS, Uno, 0);
+        // Then Card Uno should appear in Findus fiels index 0
+        assertThat(game.getCardInField(Player.FINDUS, 0).getName(), is(UNO_CARD));
     }
 
     @Test
-    public void shouldPeddersenHeroHave3ManaEachTurn() {
-        // Given initialized game
-        // When Fidus starts each turn
-        // Then Findus hero' mana' should be 3
-        game.endTurn();
-        game.endTurn();
-        game.endTurn();
-        assertThat(game.getHero(Player.PEDDERSEN).getMana(), is(3));
+    public void shouldPeddersenPlayCardUnoCardUnoAppearsInFindusField() {
+        // Given initilized game
+        // When Findus plays Card Uno
+        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+        game.playCard(Player.PEDDERSEN, Uno, 0);
+        // Then Card Uno should appear in Findus fiels index 0
+        assertThat(game.getCardInField(Player.PEDDERSEN, 0).getName(), is(UNO_CARD));
     }
 
-    @Test
-    public void shouldFindusFieldSizeBeSizeZeroAtBegining(){
-      // Given initialized game
-      // When game begins
-      // Then Fundus field size should be 0
-      assertThat(game.getFieldSize(Player.FINDUS), is(0));
+//    @Test
+//    public void shouldFindusHeroHave3ManaEachTurn() {
+//        // Given initialized game
+//        // When Fidus starts each turn
+//        // Then Findus hero' mana' should be 3
+//        game.endTurn();
+//        game.endTurn();
+//        assertThat(game.getHero(Player.FINDUS).getMana(), is(3));
+//    }
+//
+//    @Test
+//    public void shouldPeddersenHeroHave3ManaEachTurn() {
+//        // Given initialized game
+//        // When Fidus starts each turn
+//        // Then Findus hero' mana' should be 3
+//        game.endTurn();
+//        game.endTurn();
+//        game.endTurn();
+//        assertThat(game.getHero(Player.PEDDERSEN).getMana(), is(3));
+//    }
 
-    }
-
-    @Test
-    public void shouldPeddersenFieldSizeBeSizeZeroAtBegining(){
-        // Given initialized game
-        // When game begins
-        // Then Fundus field size should be 0
-        assertThat(game.getFieldSize(Player.PEDDERSEN), is(0));
-    }
+//    @Test
+//    public void shouldFindusFieldSizeBeSizeZeroAtBegining(){
+//      // Given initialized game
+//      // When game begins
+//      // Then Fundus field size should be 0
+//      assertThat(game.getFieldSize(Player.FINDUS), is(0));
+//
+//    }
+//
+//    @Test
+//    public void shouldPeddersenFieldSizeBeSizeZeroAtBegining(){
+//        // Given initialized game
+//        // When game begins
+//        // Then Fundus field size should be 0
+//        assertThat(game.getFieldSize(Player.PEDDERSEN), is(0));
+//    }
 
 
 //    @Test

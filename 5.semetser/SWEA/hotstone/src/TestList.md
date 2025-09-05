@@ -20,20 +20,22 @@ Testlist for Hotstone
 * [OK] Given Findus’ second turn, the first card drawn from the deck is CUATRO_CARD.
 * [OK] Findus’ hero has 21 health and 3 mana at game start.
 * [OK] Peddersen’s hero has 21 health and 3 mana at game start.
-* [OK] Findus’ hero has 3 mana at the start of each turn.
-* [OK] Peddersen’s hero has 3 mana at the start of each turn.
-* [OK] Findus’ field is empty (size 0) at the start of the game.
-* [OK] Peddersen’s field is empty (size 0) at the start of the game.
+
 
 Backlog
 
 Play cards
-* When a player plays card Uno, card uno appears in the player's field.
+* [OK] When Findus plays card Uno, card uno appears in the Findus' field.
+* When a Peddersen plays card Uno, card uno appears in the Peddersen field.
 * When a player plays a card, his handsize should decrease by one
 * When a player plays card then the other players hand does not decrease in size
 * When a player plays card Uno to their field, then card Uno is removed from their hand
 * When a player plays card Dos to their field, card Dos is removed from their hand
 * When a player plays card Dos and card Uno already is in their field, fieldsize should be two.
+* Findus’ field is empty (size 0) at the start of the game.
+* Peddersen’s field is empty (size 0) at the start of the game.
+* Findus’ hero has 3 mana at the start of each turn.
+* Peddersen’s hero has 3 mana at the start of each turn.
 
 Placement on field
 * When card is removed from field then all other elements should shift index

@@ -143,7 +143,11 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Iterable<? extends Card> getHand(Player who) {
-    return null;
+      if (who == Player.FINDUS) {
+          return FindusHand;
+      } else {
+          return PeddersenHand;
+      }
   }
 
   @Override
@@ -171,12 +175,11 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public int getFieldSize(Player who) {
-        //if (who == Player.FINDUS){
-        //    return FindusField.size();
-        //} else {
-        //    return PeddersenField.size();
-        //}
-      return 0;
+        if (who == Player.FINDUS){
+            return FindusField.size();
+        } else {
+            return PeddersenField.size();
+        }
   }
 
   @Override
@@ -206,14 +209,15 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public Status playCard(Player who, Card card, int atIndex) {
-        if (who == Player.FINDUS) {
-            //int cardIndex = FindusHand.indexOf(card);
-            Card FindusRemovedCard = FindusHand.remove(2);
-            FindusField.add(atIndex, FindusRemovedCard);
-        } else {
-            PeddersenField.add(atIndex, card);
-        }
-        return Status.OK;
+//        if (who == Player.FINDUS) {
+//            //int cardIndex = FindusHand.indexOf(card);
+//            //Card FindusRemovedCard = FindusHand.remove(2);
+//            FindusField.add(atIndex, getCardInHand(Player.FINDUS, 2));
+//        } else {
+//            PeddersenField.add(atIndex, card);
+//        }
+//        return Status.OK;
+      return null;
   }
 
   @Override

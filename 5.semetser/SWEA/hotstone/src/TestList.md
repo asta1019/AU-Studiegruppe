@@ -25,15 +25,15 @@ Testlist for Hotstone
 Backlog
 
 Play cards
-* [OK] When Findus plays card Uno, card uno appears in the Findus' field.
-* [OK] When a Peddersen plays card Uno, card uno appears in the Peddersen field.
-* [OK] When a Findus plays a card Uno, his handsize should decrease by one
+* [] When Findus plays card Uno, card uno appears in the Findus' field.
+* [] When a Peddersen plays card Uno, card uno appears in the Peddersen field.
+* [] When a Findus plays a card Uno, his handsize should decrease by one
 * When a player plays card then the other players hand does not decrease in size
 * When a player plays card Uno to their field, then card Uno is removed from their hand
 * When a player plays card Dos to their field, card Dos is removed from their hand
 * When a player plays card Dos and card Uno already is in their field, fieldsize should be two.
-* Findus’ field is empty (size 0) at the start of the game.
-* Peddersen’s field is empty (size 0) at the start of the game.
+* When Findus plays a card, field size should increase by one.
+* When Peddersen plays a card, field size should increase by one.
 * Findus’ hero has 3 mana at the start of each turn.
 * Peddersen’s hero has 3 mana at the start of each turn.
 

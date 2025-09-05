@@ -283,46 +283,108 @@ public class TestAlphaStone {
     }
 
     @Test
-    public void shouldFindusPlayCardUnoCardUnoAppearsInFindusField() {
-        // Given initilized game
-        // When Findus plays Card Uno
-        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
-        game.playCard(Player.FINDUS, Uno, 0);
-        // Then Card Uno should appear in Findus fiels index 0
-        assertThat(game.getCardInField(Player.FINDUS, 0).getName(), is(UNO_CARD));
-    }
-
-    @Test
-    public void shouldPeddersenPlayCardUnoCardUnoAppearsInFindusField() {
-        // Given initilized game
-        // When Findus plays Card Uno
-        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
-        game.playCard(Player.PEDDERSEN, Uno, 0);
-        // Then Card Uno should appear in Findus fiels index 0
-        assertThat(game.getCardInField(Player.PEDDERSEN, 0).getName(), is(UNO_CARD));
-    }
-
-    @Test
-    public void shouldFindusPlayCardUnoHisHandsizeDecreaseByOne() {
-      // Given initialized game
-      // When Findus plays a card
-      int oldHandsize = game.getHandSize(Player.FINDUS);
-      Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
-      game.playCard(Player.FINDUS, Uno, 0);
-      // Then Findus handsize decrease by one
-      assertThat(game.getHandSize(Player.FINDUS), is(oldHandsize - 1));
-    }
-
-    @Test
-    public void shouldPeddersenPlayCardUnoHisHandsizeDecreaseByOne() {
+    public void shouldFindusHandContainCardsUnoDosTres() {
         // Given initialized game
-        // When Findus plays a card
-        int oldHandsize = game.getHandSize(Player.PEDDERSEN);
-        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
-        game.playCard(Player.PEDDERSEN, Uno, 0);
-        // Then Findus handsize decrease by one
-        assertThat(game.getHandSize(Player.PEDDERSEN), is(oldHandsize - 1));
+        Card Uno = new StandardCard(UNO_CARD,1 ,1 ,1);
+        Card Dos = new StandardCard(DOS_CARD,2 ,2 ,2);
+        Card Tres = new StandardCard(TRES_CARD,3 ,3 ,3);
+        ArrayList<Card> FindusHand = new ArrayList<>();
+        FindusHand.add(Tres);
+        FindusHand.add(Dos);
+        FindusHand.add(Uno);
+        // When
+        // Then player has Uno, Dos, Tres in hand
+        assertThat(game.getHand(Player.FINDUS), hasItems(Uno, Dos, Tres));
     }
+
+//    @Test
+//    public void shouldFindusPlayedCardBeInHand() {
+//        // Given initialized game
+//        Card Uno = new StandardCard(UNO_CARD,1 ,1 ,1);
+//        ArrayList<Card> FindusHand = new ArrayList<>();
+//        FindusHand.add(Uno);
+//        // When Findus plays card
+//        game.playCard(Player.FINDUS, Uno, 0);
+//        // Then card has to be in Findus hand
+//        assertThat(game.getHand(Player.FINDUS), hasItem(Uno));
+//    }
+
+//    @Test
+//    public void shouldFindusPlaysACardFieldSizeShouldIncreaseBy1() {
+//        // Given initilized game
+//        // When Findus plays a card
+//        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//        game.playCard(Player.FINDUS, Uno, 0);
+//        // Then Card Uno should appear in Findus fiels index 0
+//        assertThat(game.getFieldSize(Player.FINDUS), is(1));
+//    }
+//
+//    @Test
+//    public void shouldPeddersenPlaysACardFieldSizeShouldIncreaseBy1() {
+//        // Given initilized game
+//        // When Peddersen plays a card
+//        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//        game.playCard(Player.PEDDERSEN, Uno, 0);
+//        // Then Card Uno should appear in Findus fiels index 0
+//        assertThat(game.getFieldSize(Player.PEDDERSEN), is(1));
+//    }
+
+//    @Test
+//    public void shouldFindusPlayCardUnoCardUnoAppearsInFindusField() {
+//        // Given initilized game
+//        // When Findus plays Card Uno
+//        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//        game.playCard(Player.FINDUS, Uno, 0);
+//        // Then Card Uno should appear in Findus fiels index 0
+//        assertThat(game.getCardInField(Player.FINDUS, 0).getName(), is(UNO_CARD));
+//    }
+//
+//    @Test
+//    public void shouldPeddersenPlayCardUnoCardUnoAppearsInFindusField() {
+//        // Given initilized game
+//        // When Findus plays Card Uno
+//        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//        game.playCard(Player.PEDDERSEN, Uno, 0);
+//        // Then Card Uno should appear in Findus fiels index 0
+//        assertThat(game.getCardInField(Player.PEDDERSEN, 0).getName(), is(UNO_CARD));
+//    }
+
+
+
+//    @Test
+//    public void shouldFindusPlayCardUnoHisHandsizeDecreaseByOne() {
+//      // Given initialized game
+//      // When Findus plays a card
+//      int oldHandsize = game.getHandSize(Player.FINDUS);
+//      Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//      game.playCard(Player.FINDUS, Uno, 0);
+//      // Then Findus handsize decrease by one
+//      assertThat(game.getHandSize(Player.FINDUS), is(oldHandsize - 1));
+//    }
+
+//    @Test
+//    public void shouldFindusPlayCardDosHisHandsizeDecreaseByOne() {
+//        // Given initialized game
+//        // When Findus plays a card
+//        int oldHandsize = game.getHandSize(Player.FINDUS);
+//        Card Dos = new StandardCard(DOS_CARD, 2, 2, 2);
+//        game.playCard(Player.FINDUS, Dos, 0);
+//        // Then Findus handsize decrease by one
+//        assertThat(game.getHandSize(Player.FINDUS), is(oldHandsize - 1));
+//    }
+//
+
+
+//    @Test
+//    public void shouldPeddersenPlayCardUnoHisHandsizeDecreaseByOne() {
+//        // Given initialized game
+//        // When Findus plays a card
+//        int oldHandsize = game.getHandSize(Player.PEDDERSEN);
+//        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+//        game.playCard(Player.PEDDERSEN, Uno, 0);
+//        // Then Findus handsize decrease by one
+//        assertThat(game.getHandSize(Player.PEDDERSEN), is(oldHandsize - 1));
+//    }
 //    @Test
 //    public void shouldFindusHeroHave3ManaEachTurn() {
 //        // Given initialized game

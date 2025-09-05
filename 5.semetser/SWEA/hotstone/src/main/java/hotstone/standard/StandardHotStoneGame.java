@@ -207,7 +207,9 @@ public class StandardHotStoneGame implements Game {
   @Override
   public Status playCard(Player who, Card card, int atIndex) {
         if (who == Player.FINDUS) {
-            FindusField.add(atIndex, card);
+            //int cardIndex = FindusHand.indexOf(card);
+            Card FindusRemovedCard = FindusHand.remove(2);
+            FindusField.add(atIndex, FindusRemovedCard);
         } else {
             PeddersenField.add(atIndex, card);
         }

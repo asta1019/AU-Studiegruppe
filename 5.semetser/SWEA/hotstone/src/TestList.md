@@ -26,8 +26,8 @@ Backlog
 
 Play cards
 * [OK] When Findus plays card Uno, card uno appears in the Findus' field.
-* When a Peddersen plays card Uno, card uno appears in the Peddersen field.
-* When a player plays a card, his handsize should decrease by one
+* [OK] When a Peddersen plays card Uno, card uno appears in the Peddersen field.
+* [OK] When a Findus plays a card Uno, his handsize should decrease by one
 * When a player plays card then the other players hand does not decrease in size
 * When a player plays card Uno to their field, then card Uno is removed from their hand
 * When a player plays card Dos to their field, card Dos is removed from their hand

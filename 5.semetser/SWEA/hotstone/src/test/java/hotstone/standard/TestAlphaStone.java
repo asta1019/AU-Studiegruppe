@@ -302,6 +302,27 @@ public class TestAlphaStone {
         assertThat(game.getCardInField(Player.PEDDERSEN, 0).getName(), is(UNO_CARD));
     }
 
+    @Test
+    public void shouldFindusPlayCardUnoHisHandsizeDecreaseByOne() {
+      // Given initialized game
+      // When Findus plays a card
+      int oldHandsize = game.getHandSize(Player.FINDUS);
+      Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+      game.playCard(Player.FINDUS, Uno, 0);
+      // Then Findus handsize decrease by one
+      assertThat(game.getHandSize(Player.FINDUS), is(oldHandsize - 1));
+    }
+
+    @Test
+    public void shouldPeddersenPlayCardUnoHisHandsizeDecreaseByOne() {
+        // Given initialized game
+        // When Findus plays a card
+        int oldHandsize = game.getHandSize(Player.PEDDERSEN);
+        Card Uno = new StandardCard(UNO_CARD, 1, 1, 1);
+        game.playCard(Player.PEDDERSEN, Uno, 0);
+        // Then Findus handsize decrease by one
+        assertThat(game.getHandSize(Player.PEDDERSEN), is(oldHandsize - 1));
+    }
 //    @Test
 //    public void shouldFindusHeroHave3ManaEachTurn() {
 //        // Given initialized game

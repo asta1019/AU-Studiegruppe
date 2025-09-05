@@ -166,7 +166,7 @@ public class StandardHotStoneGame implements Game {
 
   @Override
   public void endTurn() {
-        // switch current player form Findus to Peddersen
+        // switch current player from Findus to Peddersen
       if (currentPlayer == Player.FINDUS) {
           currentPlayer = Player.PEDDERSEN;
           // When tunnumber more than 1 Peddersen gets a card in hand

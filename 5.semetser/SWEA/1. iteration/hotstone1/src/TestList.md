@@ -23,6 +23,7 @@ Testlist for Hotstone
 
 Backlog
 ====
+* (Look at implementation of switching players)
 
 Play cards
 * When a player plays card Uno, card uno appears in the player's field.

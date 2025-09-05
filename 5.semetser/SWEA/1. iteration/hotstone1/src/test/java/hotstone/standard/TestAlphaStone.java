@@ -19,7 +19,7 @@ package hotstone.standard;
 
 /**
  * Skeleton class for AlphaStone test cases
- *
+
  *    This source code is from the book
  *      "Flexible, Reliable Software:
  *        Using Patterns and Agile Development"
